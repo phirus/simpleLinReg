@@ -12,5 +12,10 @@
 *.la
 *.a
 
-#Documentation
+# Documentation
 /doc
+
+# binaries
+bin/
+obj/
+
