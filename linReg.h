@@ -4,6 +4,7 @@
 #include<vector>
 #include<cmath>
 #include<iostream>
+#include<fstream>
 
 typedef std::vector<double> vec;
 /// lineare Regression nach der Beschreibung im Bronstein(S. 804)
@@ -37,5 +38,7 @@ class LinReg
     void calcAB();
     void calculate(); /// <- Zusammenfassung
 };
+
+LinReg readFile(std::string filename);
 
 #endif

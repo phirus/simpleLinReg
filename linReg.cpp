@@ -91,4 +91,21 @@ void LinReg::calculate(){
     calcsigma2();
 }
 
+LinReg readFile(std::string filename){
+    std::fstream file;
+    std::string line;
+    double tmp;
+    vec x,y;
 
+    file.open(filename.c_str());
+
+    while (file.good()){
+        file >> tmp;
+        x.push_back(tmp);
+        file >> tmp;
+        y.push_back(tmp);
+    }
+    file.close();
+    LinReg lin(x,y);
+    return lin;
+};

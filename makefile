@@ -72,7 +72,7 @@ out_release: before_release $(OBJ_RELEASE) $(DEP_RELEASE)
 
 $(OBJDIR_RELEASE)/linReg.o: linReg.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c linReg.cpp -o $(OBJDIR_RELEASE)/linReg.o
-
+	
 $(OBJDIR_RELEASE)/main.o: main.cpp
 	$(CXX) $(CFLAGS_RELEASE) $(INC_RELEASE) -c main.cpp -o $(OBJDIR_RELEASE)/main.o
 
