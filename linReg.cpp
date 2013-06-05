@@ -104,6 +104,7 @@ LinReg readFile(std::string filename){
         x.push_back(tmp);
         file >> tmp;
         y.push_back(tmp);
+        getline(file,line);
     }
     file.close();
     LinReg lin(x,y);
