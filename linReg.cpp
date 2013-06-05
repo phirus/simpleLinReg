@@ -93,7 +93,7 @@ void LinReg::calculate(){
 
 LinReg readFile(std::string filename){
     std::fstream file;
-    std::string line;
+    std::string dummy;
     double tmp;
     vec x,y;
 
@@ -104,6 +104,7 @@ LinReg readFile(std::string filename){
         x.push_back(tmp);
         file >> tmp;
         y.push_back(tmp);
+        getline(file,dummy); // gets the rest of the line and ensures that everything after the first two columns gets ignored
     }
     file.close();
     LinReg lin(x,y);

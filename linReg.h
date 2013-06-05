@@ -5,6 +5,7 @@
 #include<cmath>
 #include<iostream>
 #include<fstream>
+#include<sstream>
 
 typedef std::vector<double> vec;
 /// lineare Regression nach der Beschreibung im Bronstein(S. 804)
