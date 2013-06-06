@@ -113,5 +113,6 @@ TEST(results,output)
 {
     LinReg lin = readFile("testfile01.dat");
     lin.writeToFile("testfile03.dat");
+    lin.writeToFile("testfile04.dat",true);
 }
 #endif

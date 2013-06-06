@@ -72,14 +72,16 @@ vec LinReg::yFit(){
     return yF;
 }
 
-void LinReg::writeToFile(std::string filename){
+void LinReg::writeToFile(std::string filename, bool verboose){
     std::fstream file;
     vec yF = yFit();
 
     file.open(filename.c_str(),std::ios::out | std::ios::trunc);
-    file << "# a=" << a << std::endl;
-    file << "# b=" << b << std::endl;
-    file << "# sigma^2=" << sigma2 << std::endl;
+    if(verboose == true){
+        file << "# a=" << a << std::endl;
+        file << "# b=" << b << std::endl;
+        file << "# sigma^2=" << sigma2 << std::endl;
+    }    
     int size = x.size();
     for(int i = 0; i<size; i++){
         file << x[i] << "\t" << y[i] << "\t" << yF[i] << std::endl;

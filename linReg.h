@@ -26,7 +26,7 @@ class LinReg
     const vec getX()const{return x;};
     const vec getY()const{return y;};
     const double calcCor()const; /// <- empirischer Korrelationskoeffizient R² (16.152b)
-    void writeToFile(std::string filename);
+    void writeToFile(std::string filename, bool verboose=false);
 
     private:
     vec x,y;
