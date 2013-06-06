@@ -26,6 +26,7 @@ class LinReg
     const vec getX()const{return x;};
     const vec getY()const{return y;};
     const double calcCor()const; /// <- empirischer Korrelationskoeffizient R² (16.152b)
+    void writeToFile(std::string filename);
 
     private:
     vec x,y;
@@ -38,6 +39,7 @@ class LinReg
     void calcsigma2();          /// <- berechnet die Streuung
     void calcAB();
     void calculate(); /// <- Zusammenfassung
+    vec yFit();
 };
 
 LinReg readFile(std::string filename);

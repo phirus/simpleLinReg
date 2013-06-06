@@ -63,6 +63,30 @@ const double LinReg::calcCor()const{
     return rxy2;
 }
 
+vec LinReg::yFit(){
+    vec yF;
+    int size = x.size();
+    for(int i = 0; i<size; i++){
+        yF.push_back(x[i]*a+b);
+    }
+    return yF;
+}
+
+void LinReg::writeToFile(std::string filename){
+    std::fstream file;
+    vec yF = yFit();
+
+    file.open(filename.c_str(),std::ios::out | std::ios::trunc);
+    file << "# a=" << a << std::endl;
+    file << "# b=" << b << std::endl;
+    file << "# sigma^2=" << sigma2 << std::endl;
+    int size = x.size();
+    for(int i = 0; i<size; i++){
+        file << x[i] << "\t" << y[i] << "\t" << yF[i] << std::endl;
+    }
+    file.close();
+}
+
 void LinReg::calcsigma2(){
     double n = x.size();
     if(n > 2){
@@ -81,8 +105,8 @@ void LinReg::calcAB(){
     }
     if(lower <= 0) throw "use different x-values";
 
-    b = upper/lower;
-    a = meanY - b*meanX;
+    a = upper/lower;
+    b = meanY - a*meanX;
 }
 
 void LinReg::calculate(){

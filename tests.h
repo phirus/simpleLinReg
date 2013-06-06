@@ -57,8 +57,8 @@ TEST(results,sigma2)
     EXPECT_EQ(X,lin.getX());
     EXPECT_EQ(Y,lin.getY());
     EXPECT_DOUBLE_EQ(0.062499999999999944, lin.getSigma());
-    EXPECT_DOUBLE_EQ(0.85,lin.getB());
-    EXPECT_NEAR(0.175,lin.getA(),1e-10);
+    EXPECT_DOUBLE_EQ(0.85,lin.getA());
+    EXPECT_NEAR(0.175,lin.getB(),1e-10);
 }
 
 TEST(results,fileLoader)
@@ -82,10 +82,10 @@ TEST(results,fileLoader)
     EXPECT_EQ(X,lin.getX());
     EXPECT_EQ(Y,lin.getY());
     EXPECT_DOUBLE_EQ(0.062499999999999944, lin.getSigma());
-    EXPECT_DOUBLE_EQ(0.85,lin.getB());
-    EXPECT_NEAR(0.175,lin.getA(),1e-10);
+    EXPECT_DOUBLE_EQ(0.85,lin.getA());
+    EXPECT_NEAR(0.175,lin.getB(),1e-10);
 }
-TEST(results,Commentary)
+TEST(results,moreLines)
 {
     vec X;
     X.push_back(1);
@@ -106,7 +106,12 @@ TEST(results,Commentary)
     EXPECT_EQ(X,lin.getX());
     EXPECT_EQ(Y,lin.getY());
     EXPECT_DOUBLE_EQ(0.062499999999999944, lin.getSigma());
-    EXPECT_DOUBLE_EQ(0.85,lin.getB());
-    EXPECT_NEAR(0.175,lin.getA(),1e-10);
+    EXPECT_DOUBLE_EQ(0.85,lin.getA());
+    EXPECT_NEAR(0.175,lin.getB(),1e-10);
+}
+TEST(results,output)
+{
+    LinReg lin = readFile("testfile01.dat");
+    lin.writeToFile("testfile03.dat");
 }
 #endif
