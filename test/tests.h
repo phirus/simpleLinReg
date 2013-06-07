@@ -3,7 +3,7 @@
 
 #include"gtest/gtest.h"
 
-#include"linReg.h"
+#include"../src/linReg.h"
 
 using namespace std;
 
