@@ -119,18 +119,22 @@ void LinReg::calculate(){
 
 LinReg readFile(std::string filename){
     std::fstream file;
-    std::string dummy;
+    std::string line;
     double tmp;
     vec x,y;
 
     file.open(filename.c_str());
 
     while (file.good()){
-        file >> tmp;
-        x.push_back(tmp);
-        file >> tmp;
-        y.push_back(tmp);
-        getline(file,dummy); // gets the rest of the line and ensures that everything after the first two columns gets ignored
+        line.clear();
+        getline(file,line);
+        if ( line.substr(0,1) != "#" ){
+            std::istringstream inputLine(line);
+            inputLine >> tmp;
+            x.push_back(tmp);
+            inputLine >> tmp;
+            y.push_back(tmp);
+        }
     }
     file.close();
     LinReg lin(x,y);

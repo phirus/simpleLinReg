@@ -85,7 +85,7 @@ TEST(results,fileLoader)
     EXPECT_DOUBLE_EQ(0.85,lin.getA());
     EXPECT_NEAR(0.175,lin.getB(),1e-10);
 }
-TEST(results,moreLines)
+TEST(results,moreLinesCommented)
 {
     vec X;
     X.push_back(1);

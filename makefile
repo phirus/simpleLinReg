@@ -1,8 +1,8 @@
 WORKDIR = `pwd`
 
 # general options
-CC = gcc
-CXX = g++
+CC = clang
+CXX = clang++
 AR = ar
 LD = g++
 WINDRES = windres
