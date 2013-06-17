@@ -10,6 +10,7 @@ WINDRES = windres
 # release options
 CFLAGS =  -Wall -O3
 RCFLAGS_RELEASE =  $(RCFLAGS)
+LDFLAGS = -lboost_program_options
 OBJDIR_RELEASE = obj
 BINDIR = bin
 OUT_RELEASE = $(BINDIR)/linReg
@@ -22,7 +23,7 @@ before_release:
 	test -d $(OBJDIR_RELEASE) || mkdir -p $(OBJDIR_RELEASE)
 
 out_release: before_release $(OBJ) $(DEP_RELEASE)
-	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ)
+	$(LD) $(LIBDIR_RELEASE) -o $(OUT_RELEASE) $(OBJ) $(LDFLAGS)
 
 $(OBJDIR_RELEASE)/linReg.o: src/linReg.cpp
 	$(CXX) $(CFLAGS) -c src/linReg.cpp -o $(OBJDIR_RELEASE)/linReg.o
