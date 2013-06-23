@@ -14,6 +14,7 @@ int main(int argc, char** argv){
         ("help,h", "produce help message")
         ("input,i", boost::program_options::value<string> (), "specify input file")
         ("output,o", boost::program_options::value<string> (), "specify output file")
+        ("verboose,v", "produce verboose output")
         ;
     boost::program_options::variables_map vm;
     boost::program_options::store(boost::program_options::parse_command_line(argc,argv,desc),vm);
@@ -33,12 +34,12 @@ int main(int argc, char** argv){
         cout << "sigma = " << lr.getSigma() << endl;    
 
         if (vm.count("output")) {
-            lr.writeToFile(vm["output"].as<string>());
+            lr.writeToFile(vm["output"].as<string>(),vm.count("verboose"));
             cout << "Output written to " << vm["output"].as<string>() << endl;
         } else cout << "no Output file specified" << endl;
 
     } else {
-    cout << "Input file was not set.\n";
+    cout << "no input file specified" << endl;
     }
     
 
